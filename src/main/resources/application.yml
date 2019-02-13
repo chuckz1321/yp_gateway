@@ -12,8 +12,8 @@ spring:
           enabled: false
           lowerCaseServiceId: true
       routes:
-      - id: yp_hotel
-        uri: lb://yp_hotel
+      - id: YP_HOTEL
+        uri: http://www.google.com
         predicates:
         - Path=/hotel/**
         filters:
