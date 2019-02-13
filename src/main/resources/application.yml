@@ -13,7 +13,7 @@ spring:
           lowerCaseServiceId: true
       routes:
       - id: yp_hotel
-        uri: http://yphotel.mybluemix.net
+        uri: lb://yp_hotel
         predicates:
         - Path=/hotel/**
         filters:
