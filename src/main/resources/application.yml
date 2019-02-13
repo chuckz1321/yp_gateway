@@ -1,0 +1,37 @@
+
+server:
+  port: 8763
+
+spring:
+  application:
+    name: yp_gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: false
+          lowerCaseServiceId: true
+      routes:
+      - id: yp_hotel
+        uri: lb://YP_HOTEL
+        predicates:
+        - Path=/hotel/**
+        filters:
+        - StripPrefix=1
+
+eureka:
+  client:
+    service-url:
+      defaultZone: http://ypserver.mybluemix.net/eureka
+  instance:
+    hostname: localhost
+    metadataMap:
+      instanceId: yp_gateway
+
+
+---
+spring:
+  profiles: cloud
+eureka:
+  instance:
+    nonSecurePort: 80
