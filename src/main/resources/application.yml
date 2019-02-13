@@ -18,6 +18,12 @@ spring:
         - Path=/hotel/**
         filters:
         - StripPrefix=1
+      - id: YP_RESTAURANT
+        uri: http://yprestaurant.mybluemix.net
+        predicates:
+        - Path=/rar/**
+        filters:
+        - StripPrefix=1
 
 eureka:
   client:
