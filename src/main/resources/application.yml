@@ -12,10 +12,22 @@ spring:
           enabled: false
           lowerCaseServiceId: true
       routes:
-      - id: YP_HOTEL
-        uri: http://yphotel.mybluemix.net
+      - id: YP_RESTAURANT
+        uri: http://yprestaurant.mybluemix.net
         predicates:
-        - Path=/hotel/**
+        - Path=/rest/**
+        filters:
+        - StripPrefix=1
+      - id: YP_SKIRESORT
+        uri: http://ypskiresort.mybluemix.net
+        predicates:
+        - Path=/ski/**
+        filters:
+        - StripPrefix=1
+      - id: YP_MUSEUM
+        uri: http://ypmuseum.mybluemix.net
+        predicates:
+        - Path=/museum/**
         filters:
         - StripPrefix=1
 
