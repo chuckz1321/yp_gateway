@@ -39,10 +39,10 @@ public class YpGatewayApplication {
     public String testController1(){
         StringBuilder sb = new StringBuilder();
         Applications applications = eurekaClient.getApplications();
-        Map<String, String> serviceMap = new HashMap();
+        Map<String, Integer> serviceMap = new HashMap();
         for(Application application : applications.getRegisteredApplications()) {
             if(serviceMap.containsKey(application.getName())) continue;
-            serviceMap.put(application.getName(),"UP");
+            serviceMap.put(application.getName(),1);
         }
         ResponseMessage<Map> rm = new ResponseMessage<>();
         rm.setHttpCode("200");
