@@ -7,6 +7,7 @@ import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 import com.netflix.discovery.shared.Applications;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
@@ -27,6 +28,9 @@ public class YpGatewayApplication {
     @Autowired
     private EurekaClient eurekaClient;
 
+    @Value("${spring.application.name}")
+    private String gatewayName;
+
     public static void main(String[] args) {
         SpringApplication.run(YpGatewayApplication.class, args);
     }
@@ -41,7 +45,7 @@ public class YpGatewayApplication {
         Applications applications = eurekaClient.getApplications();
         Map<String, Integer> serviceMap = new HashMap();
         for(Application application : applications.getRegisteredApplications()) {
-            if(serviceMap.containsKey(application.getName())) continue;
+            if(serviceMap.containsKey(application.getName()) || application.getName().toLowerCase() == gatewayName) continue;
             serviceMap.put(application.getName(),1);
         }
         ResponseMessage<Map> rm = new ResponseMessage<>();
