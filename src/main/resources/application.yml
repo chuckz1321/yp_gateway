@@ -5,31 +5,6 @@ server:
 spring:
   application:
     name: yp_gateway
-  cloud:
-    gateway:
-      discovery:
-        locator:
-          enabled: false
-          lowerCaseServiceId: true
-      routes:
-      - id: YP_RESTAURANT
-        uri: http://yprestaurant.mybluemix.net
-        predicates:
-        - Path=/rest/**
-        filters:
-        - StripPrefix=1
-      - id: YP_SKIRESORT
-        uri: http://ypskiresort.mybluemix.net
-        predicates:
-        - Path=/ski/**
-        filters:
-        - StripPrefix=1
-      - id: YP_MUSEUM
-        uri: http://ypmuseum.mybluemix.net
-        predicates:
-        - Path=/museum/**
-        filters:
-        - StripPrefix=1
 
 eureka:
   client:
@@ -39,6 +14,17 @@ eureka:
     hostname: localhost
     metadataMap:
       instanceId: yp_gateway
+zuul:
+  routes:
+    api-restaurant:
+      path: /rest/**
+      url: http://yprestaurant.mybluemix.net
+    api-skiresort:
+      path: /ski/**
+      url: http://ypskiresort.mybluemix.net
+    api-museum:
+      path: /museum/**
+      url: http://ypmuseum.mybluemix.net
 
 
 ---

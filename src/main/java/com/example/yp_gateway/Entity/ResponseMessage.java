@@ -1,7 +1,5 @@
 package com.example.yp_gateway.Entity;
 
-import com.google.gson.JsonObject;
-
 public class ResponseMessage<T> {
 
     private String httpCode;
