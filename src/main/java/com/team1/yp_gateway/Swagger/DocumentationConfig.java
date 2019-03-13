@@ -1,4 +1,4 @@
-package com.example.yp_gateway.Swagger;
+package com.team1.yp_gateway.Swagger;
 
 import org.springframework.cloud.netflix.zuul.filters.Route;
 import org.springframework.cloud.netflix.zuul.filters.RouteLocator;

@@ -1,6 +1,6 @@
-package com.example.yp_gateway;
+package com.team1.yp_gateway;
 
-import com.example.yp_gateway.Entity.ResponseMessage;
+import com.team1.yp_gateway.Entity.ResponseMessage;
 import com.netflix.discovery.EurekaClient;
 import com.netflix.discovery.shared.Application;
 import com.netflix.discovery.shared.Applications;

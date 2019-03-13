@@ -1,4 +1,4 @@
-package com.example.yp_gateway;
+package com.team1.yp_gateway;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

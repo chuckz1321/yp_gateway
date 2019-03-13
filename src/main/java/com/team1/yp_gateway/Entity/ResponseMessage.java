@@ -1,4 +1,4 @@
-package com.example.yp_gateway.Entity;
+package com.team1.yp_gateway.Entity;
 
 public class ResponseMessage<T> {
 
