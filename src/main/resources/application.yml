@@ -1,4 +1,3 @@
-
 server:
   port: 8763
 
@@ -25,6 +24,9 @@ zuul:
     api-museum:
       path: /museum/**
       url: http://ypmuseum.mybluemix.net
+    api-company:
+      path: /company/**
+      url: http://ypcompany.mybluemix.net
 
 
 ---

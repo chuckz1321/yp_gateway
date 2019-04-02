@@ -36,13 +36,14 @@ public class YpGatewayApplication {
     }
 
     @RequestMapping(value = "/getMicroServicesList", method = RequestMethod.GET, produces = {"application/json;charset=UTF-8"})
-    public ResponseMessage testController1(){
+    public ResponseMessage testController1() {
         StringBuilder sb = new StringBuilder();
         Applications applications = eurekaClient.getApplications();
         Map<String, Integer> serviceMap = new HashMap();
-        for(Application application : applications.getRegisteredApplications()) {
-            if(serviceMap.containsKey(application.getName()) || application.getName().toLowerCase() == gatewayName) continue;
-            serviceMap.put(application.getName(),1);
+        for (Application application : applications.getRegisteredApplications()) {
+            if (serviceMap.containsKey(application.getName()) || application.getName().toLowerCase() == gatewayName)
+                continue;
+            serviceMap.put(application.getName(), 1);
         }
         ResponseMessage<Map> rm = new ResponseMessage<>();
         rm.setHttpCode("200");

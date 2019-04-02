@@ -28,6 +28,7 @@ public class DocumentationConfig implements SwaggerResourcesProvider {
         resources.add(swaggerResource("skiresort", "/ski/v2/api-docs", "2.0"));
         resources.add(swaggerResource("museum", "/museum/v2/api-docs", "2.0"));
         resources.add(swaggerResource("restaurant", "/rest/v2/api-docs", "2.0"));
+        resources.add(swaggerResource("company", "/company/v2/api-docs", "2.0"));
         return resources;
     }
 
