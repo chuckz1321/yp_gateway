@@ -7,7 +7,7 @@ spring:
 
 eureka:
   client:
-    registry-fetch-interval-seconds: 3
+    registry-fetch-interval-seconds: 1
     service-url:
       defaultZone: http://ypserver.mybluemix.net/eureka
   instance:

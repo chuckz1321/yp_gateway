@@ -40,8 +40,10 @@ public class YpGatewayApplication {
         StringBuilder sb = new StringBuilder();
         Applications applications = eurekaClient.getApplications();
         Map<String, Integer> serviceMap = new HashMap();
+        System.out.println(gatewayName);
         for (Application application : applications.getRegisteredApplications()) {
-            if (serviceMap.containsKey(application.getName()) || application.getName().toLowerCase() == gatewayName)
+            System.out.println(application.getName().toLowerCase());
+            if (serviceMap.containsKey(application.getName()) || application.getName().toLowerCase().equals(gatewayName))
                 continue;
             serviceMap.put(application.getName(), 1);
         }
